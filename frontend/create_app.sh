@@ -1,0 +1,1 @@
+sh -c 'npx create-react-app app --template typescript'

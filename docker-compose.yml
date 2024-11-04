@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    container_name: web
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/workspace
+    tty: true
+  
+  fastapi:
+    container_name: fastapi
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/workspace
+    tty: true
+
