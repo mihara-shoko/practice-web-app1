@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    env_file: mongodb/.env
+    volumes:
+      - ./mongodb:/mongodb
+    tty: true
+
+  flask:
+    container_name: flask
+    build:
+      context: flask
+      dockerfile: ./Dockerfile
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./flask:/app
+    environment:
+      TZ: Asia/Tokyo
+    command: ["python3", "main.py"]
+    tty: true
+
+  react:
+    container_name: react
+    build:
+      context: react
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react:/app
+    environment:
+      TZ: Asia/Tokyo
+    command: ["/bin/bash"]
+    tty: true
+
+  
+    
+    
+
