@@ -14,11 +14,16 @@ services:
   
   fastapi:
     container_name: fastapi
+    env_file:
+      - ./backend/.env
     build:
       context: ./backend
       dockerfile: Dockerfile
+      args:
+        - PORT_FASTAPI=${PORT_FASTAPI}
+        - UID
     ports:
-      - "8080:8080"
+      - "${PORT_FASTAPI}:${PORT_FASTAPI}"
     volumes:
       - ./backend:/workspace
     tty: true
