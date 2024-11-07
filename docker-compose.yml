@@ -10,6 +10,7 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend/src:/workspace
+    command: sh -c "cd /workspace/app && npm start"
     tty: true
   
   fastapi:
