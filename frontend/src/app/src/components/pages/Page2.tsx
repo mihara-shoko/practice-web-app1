@@ -1,11 +1,10 @@
 import React from 'react';
+import MyButton from '../uiparts/Button';
 
-const Page2 = () => {
+function Page2() {
     return (
       <div>
-        <header>
           <h1>Page2です！</h1>
-        </header>
       </div>
     );
   };

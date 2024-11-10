@@ -27,5 +27,7 @@ services:
       - "${PORT_FASTAPI}:${PORT_FASTAPI}"
     volumes:
       - ./backend:/workspace
+    links: 
+      - web
     tty: true
 
