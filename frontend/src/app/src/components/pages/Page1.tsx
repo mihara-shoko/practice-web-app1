@@ -4,10 +4,9 @@ import InputForm from '../uiparts/InputForm';
 import Form from '../layout/SearchForm';
 import Dialog from '../layout/Dialog';
 import Table from '../uiparts/Table';
+import TableGeneral from '../uiparts/TableGeneral';
 
-function onShow() {
-  console.log('click button')
-}
+
 
 interface User {
   id: number;
@@ -22,7 +21,15 @@ function Page1() {
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
 
-  const initialData: User[] = [];
+  const initialData: User[] = []
+
+  const [dialogData, setDialogData] = useState('initial')
+
+  function onShow(newValue: string) {
+    console.log('click button');
+    setDialogData('change text')
+  
+  }
 
   const sampleData: User[] = [
     { id: 1, name: 'Alice', email: 'alice@example.com', age: 25 },
@@ -30,7 +37,7 @@ function Page1() {
     { id: 3, name: 'Charlie', email: 'charlie@example.com', age: 28 },
   ];
 
-  const [data, setTableData] = useState<User[]>(initialData);
+  const [data, setTableData] = useState<User[]>([]);
 
   const toggleTable = () => {
     setTableData(initialData)
@@ -46,15 +53,23 @@ function Page1() {
           <Form></Form>
           <br></br>
 
-          <button onClick={openDialog}>Open Dialog</button>
+          <button onClick={openDialog} >Open Dialog</button>
 
-          <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Sample Dialog">
+          <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Sample Dialog" dialogData={dialogData}>
             <p>This is a dialog content.</p>
           </Dialog>
           <br></br>
           <Button text='show table' onClick={toggleTable} />
 
           <br></br>
+          {data.length > 0 ? (
+          <Table data={data} columns={['id', 'name', 'email', 'age']}/>
+          ) : (
+            <p>No results found</p>
+          )}
+
+          <br></br>
+          <p>general table</p>
           {data.length > 0 ? (
           <Table data={data} columns={['id', 'name', 'email', 'age']}/>
           ) : (

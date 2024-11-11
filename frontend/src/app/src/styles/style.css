@@ -1,0 +1,110 @@
+/* styles.css */
+
+/* Container for form and table */
+/* Container for form and table */
+.container {
+    display: flex;
+    gap: 20px; /* フォームとテーブルの間にスペースを追加 */
+    align-items: flex-start;
+    margin: 40px;
+    width: 100%; /* 親コンテナの幅を全体に広げる */
+  }
+  
+  /* Form styles */
+  form {
+    flex-grow: 1; /* 空きスペースに応じて幅を広げる */
+    max-width: 600px; /* 必要に応じて最大幅を設定 */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Table container with scroll */
+.table-container {
+    max-height: 400px; /* 必要に応じて高さを調整 */
+    overflow-y: auto; /* 縦方向にスクロールを許可 */
+    overflow-x: auto; /* 横方向にもスクロールを許可 */
+    border: 1px solid #ddd; /* コンテナに枠線を付ける */
+  }
+  
+  /* Table styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 800px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #e9e9e9;
+  }
+  
+  /* Input styles */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  /* Email input style */
+  input[type="email"] {
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  /* Textarea styles */
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  /* Button styles */
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  

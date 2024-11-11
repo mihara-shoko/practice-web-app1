@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
+  dialogData: string;
   title?: string;
   children?: React.ReactNode;
 }
 
 // ダイアログコンポーネント
-const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, title, children }) => {
+const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, title, children, dialogData }) => {
   if (!isOpen) return null; // ダイアログが開かれていない場合は表示しない
 
   return (
@@ -17,30 +18,13 @@ const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, title, children }) => 
       <div style={styles.dialog}>
         <h2>{title}</h2>
         <div>{children}</div>
+        <div>{dialogData}</div>
         <button onClick={onClose} style={styles.closeButton}>Close</button>
       </div>
     </div>
   );
 };
 
-// ダイアログを表示する親コンポーネント
-const App: React.FC = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const openDialog = () => setIsDialogOpen(true);
-  const closeDialog = () => setIsDialogOpen(false);
-
-  return (
-    <div>
-      <h1>React Dialog Example</h1>
-      <button onClick={openDialog}>Open Dialog</button>
-
-      <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Sample Dialog">
-        <p>This is a dialog content.</p>
-      </Dialog>
-    </div>
-  );
-};
 
 // スタイルオブジェクトをCSSProperties型として定義
 const styles: { [key: string]: React.CSSProperties } = {
